@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Login </title>
+<style>
+*{
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #000000;
+			font-family: "Arial", sans-serif;
+			padding: 50px;
+		}
+		.container{
+			margin: 20px auto;
+			padding: 10px;
+			width: 300px;
+			height: 350px;
+			background-color: #fff;
+			border-radius: 5px;
+		}
+		 h1{
+		 	width: 70%;
+			color: #000;
+			font-size: 32px;
+			margin: 28px auto;
+			margin-bottom: 20px;
+			text-align: center;
+			/*padding-top: 40px;*/
+		}
+		.form{
+			/*padding: 15px;*/
+			text-align: center;
+		}
+		input{
+			padding: 12px 0;
+			margin-bottom: 10px;
+			border-radius: 3px;
+			border: 2px solid transparent;
+			text-align: center;
+			width: 90%;
+			font-size: 16px;
+		}
+		.form .field{
+			background-color: #ECF0F1;
+		}
+		}
+		.form .btn{
+			background-color: #000000;
+			color: #fff;
+			line-height: 25px;
+			cursor: pointer;
+		}
+		.form .btn:hover,
+		.form .btn:active {
+			background-color: #bfbfbfbf;
+		}
+</style>
+</head>
+<body>
+	<div class="container">
+	<h1>Register</h1>
+		<div class="form">
+		    <input type="text" name="username" id="reguser" placeholder="username" class="field" required>
+		    <input type="password" name="password" id="regpass" placeholder="password" class="field" required>
+                    <input type="password" name="cpassword" placeholder="confirm password" class="field" required>
+			<script>
+				
+			</script>
+		    <input type="submit" value="register" class="btn" onclick=redirects()>
+		</div>
+	</div>
+<script>
+	function redirects(){
+		sessionStorage.setItem("reguser", document.getElementById("reguser").value);
+		sessionStorage.setItem("regpass", document.getElementById("regpass").value);
+		window.location.href="login.html";
+	}
+</script>
+</body>
