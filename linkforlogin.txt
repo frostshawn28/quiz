@@ -1,1 +1,0 @@
-https://stackoverflow.com/questions/34299555/javascript-login-register-with-localstorage
