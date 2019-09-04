@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div id="container">
+	<div id="username">
+    	<h3>Shreejit</h3>
+ 	 </div>
+  	<div id="question">
+  	  <h1 id="ques"></h1>
+  	</div>
+  	  <div id="quizarea">
+		<input type="radio" id="one"><label id="answer1" for="one"></label>
+		<input type="radio" id="two"><label id="answer2" for="two"></label>
+		<input type="radio" id="three"><label id="answer3" for="three"></label>
+		<input type="radio" id="four"><label id="answer4" for="four"></label>
+		<br>
+    		<button onclick="New()">New</button>
+</div>
+</body>
+<script>
+	var operators = ['+','-','*','/'];
+function New(){
+    num1 = Math.floor((Math.random()*100)+1);
+    num2 = Math.floor((Math.random()*100)+1);
+    op = operators[Math.floor(Math.random()*4)];
+    ques.innerHTML=num1+op+num2;
+    answer1.innerHTML=eval(num1+num2);
+    answer2.innerHTML=eval(num1*num2);
+    answer3.innerHTML=eval(num1-num2);
+    answer4.innerHTML=eval(num1/num2);
+}
+
+</script>
+</html>

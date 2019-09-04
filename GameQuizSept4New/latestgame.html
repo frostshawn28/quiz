@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{
+	box-sizing: border-box;
+}
+body{
+	background-color: #000;
+	font-family: "Arial", sans-serif;
+	padding: 20px;
+}
+#container{
+ 	margin: 20px auto;
+	padding: 50px;
+	width: auto;
+	height: auto;
+	background-color: #fff;
+	border-radius: 5px;
+}
+#questionarea{
+  margin-top: 30px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+#questionarea h1{
+ font-size: 32px;
+  margin-left: 20px;
+}
+#usernamearea{
+      float: right;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #000;
+      color: #fff;
+      text-align: centre; 
+    	padding: 10px;
+  margin-right: 20px;
+}
+#scorearea{
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #000;
+      color: #fff;
+      text-align: centre; 
+    	padding: 10px;
+  
+}
+#scorearea h3{
+  margin-left: 20px;
+}
+#username h3{
+      font-size: 24px;
+}
+p{
+  color: #000;
+  padding-top: 15px;
+}
+#submitbtn{
+ 	border-radius: 5px;
+ 	background-color: #000;
+	color: #fff;
+	line-height: 25px;
+	cursor: pointer;
+  padding: 4px;
+	border-radius: 3px;
+	border: 2px solid transparent;
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+}
+#quizarea{
+ padding: 30px;
+  margin-bottom: 20px;
+  border: 10px solid transparent;
+}
+	
+</style>
+
+
+</head>
+<body>
+<div id="container">
+	<div id="usernamearea">
+    	<h3 id="username"></h3>
+ 	 </div>
+	<div id="scorearea">
+	<h3 id="score">Score: 100 </h3>
+  </div>
+  	<div id="questionarea">
+  	  <h1 id="ques"></h1>
+  	</div>
+  	  <div id="quizarea">
+		<input type="radio" id="one" name="options"><label id="answer1" for="one"></label>
+		<input type="radio" id="two" name="options"><label id="answer2" for="two"></label>
+		<input type="radio" id="three" name="options"><label id="answer3" for="three"></label>
+		<input type="radio" id="four" name="options"><label id="answer4" for="four"></label>
+		<br>
+  	</div>
+    		<button id="submitbtn" onclick="new()">New</button>
+</div>
+<script>	
+	var correct;
+	username.innerHTML=localStorage.getItem('reguser');
+	var operators = ['+','-','*','/'];
+   	var num1 = Math.floor((Math.random()*100)+1);
+   	var num2 = Math.floor((Math.random()*100)+1);
+   	var op = operators[Math.floor(Math.random()*4)];
+
+	ques.innerHTML=num1+"+"+num2;
+	answer1.innerHTML=eval(num1+num2);
+	answer2.innerHTML=eval(num1*num2);
+	answer3.innerHTML=eval(num1-num2);
+   	answer4.innerHTML=eval(num1/num2);
+	correct=eval(num1+op+num2);	
+</script>
+</body>
+</html>
