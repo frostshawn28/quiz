@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Game quiz </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<style>
+*{
+	box-sizing: border-box;
+}
+body{
+	background-color: #000;
+	font-family: "Arial", sans-serif;
+	padding: 20px;
+}
+#container{
+ 	margin: 20px auto;
+	padding: 50px;
+	width: 70%;
+	height: auto;
+	background-color: #fff;
+	border-radius: 5px;
+}
+#question{
+  margin-top: 100px;
+  border-radius: 5px;
+  box-sizing: border-box;
+ 
+}
+#question h1{
+ font-size: 32px;
+
+}
+#username{
+      float: right;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #000;
+      color: #fff;
+      text-align: centre; 
+	padding: 10px;
+
+
+}
+#username h3{
+      font-size: 24px;
+
+}
+p{
+  color: #bfbfbf;
+  padding-top: 15px;
+  
+}
+
+#submitbtn{
+ 	border-radius: 5px;
+ 	background-color: #000;
+	color: #fff;
+	line-height: 25px;
+	cursor: pointer;
+  	padding: 4px;
+	border-radius: 3px;
+	border: 2px solid transparent;
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+  
+}
+</style>
+</head>
+<body>
+<div id="container">
+     <p id="ques"> </p>
+    <button onclick="New()">New</button>
+</div>
+<script>
+	var operators = ['+','-','*','/'];
+
+function New(){
+    num1=document.getElementById("num1");
+    num2=document.getElementById("num2");
+    oper=document.getElementById("operator");
+    answer=document.getElementById("answer");
+    rnum1 = Math.floor((Math.random()*100)+1);
+    rnum2 = Math.floor((Math.random()*100)+1);
+    op = operators[Math.floor(Math.random()*4)];
+    num1.innerHTML=rnum1;
+    num2.innerHTML=rnum2;
+    oper.innerHTML=op;
+    answer.innerHTML = eval(rnum1 + op + rnum2);
+    var question= rnum1 + op + rnum2; 
+    ques.innerHTML = question; 
+}
+				
+
+
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

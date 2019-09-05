@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<style>
+*{
+	box-sizing: border-box;
+}
+body{
+	background-color: #000;
+	font-family: "Arial", sans-serif;
+	padding: 20px;
+}
+#container{
+ 	margin: 20px auto;
+	padding: 50px;
+	width: 50%;
+	height: 40%;
+	background-color: #fff;
+	border-radius: 5px;
+}
+#questionarea{
+  margin-top: 30px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+#questionarea h1{
+ font-size: 32px;
+  margin-left: 20px;
+}
+#usernamearea{
+      float: right;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #000;
+      color: #fff;
+      padding: 30px;
+      margin-right: 20px;
+}
+#scorearea{
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #000;
+      color: #fff;
+      text-align: centre; 
+      padding: 10px;
+  
+}
+#scorearea h3{
+  margin-left: 20px;
+}
+#username h3{
+      font-size: 24px;
+	margin-top: 100px;
+}
+#questionarea h3{
+	margin-left: 20px;
+}
+p{
+  color: #000;
+  margin-left: 20px;
+  font-size: 16px;
+}
+#submitbtn{
+ 	border-radius: 5px;
+ 	background-color: #000;
+	color: #fff;
+	line-height: 25px;
+	cursor: pointer;
+    padding: 4px;
+	border-radius: 3px;
+	border: 2px solid transparent;
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+}
+#submitbtn:hover,
+#submitbtn:active{
+	background-color: #bfbfbfbf;
+	color: #000;
+}
+
+#quizarea{
+ 
+  margin-bottom: 20px;
+  border: 10px solid transparent;
+}
+	
+</style>
+
+
+</head>
+<body>
+<div id="container">
+	<div id="usernamearea">
+    	<h3 id="username"></h3>
+ 	 </div>
+	<div id="scorearea">
+	<h3 id="score">Score: <span id="scores"></span></h3>
+	<script>
+		scores.innerHTML=localStorage.getItem("score");
+	</script>
+	<div id="levelarea">
+   	 <h3 id="leveltext"> Level: <span id="level"></span> </h3>
+	<script>
+		level.innerHTML=localStorage.getItem("level");
+	</script>
+   	 </div>
+  </div>
+	
+  	<div id="questionarea">
+	<h3 id="question"> Question: </h3>
+  	 <h1 id="ques"></h1>
+  	</div>
+  	  <div id="quizarea">
+		<p> <label> <input type="radio" id="one" name="options" checked><span id="answer1"> </span> <label> </p>
+		<p> <label> <input type="radio" id="two" name="options"> <span id="answer2"> </span> <label> </p> 
+		<p> <label> <input type="radio" id="three" name="options"> <span id="answer3"> </span> <label> </p> 
+		<p> <label> <input type="radio" id="four" name="options"> <span id="answer4"> </span> <label> </p>
+		
+  	</div>
+    		<button id="submitbtn" onclick="New()">Submit</button>
+</div>
+<script>	
+	var correct,l,s,flag=false;
+	username.innerHTML=localStorage.getItem('reguser');
+	var operators = ['+','-','*','/'];
+   	var num1 = Math.floor((Math.random()*100)+1);
+   	var num2 = Math.floor((Math.random()*100)+1);
+   	var op = operators[Math.floor(Math.random()*4)];
+
+	ques.innerHTML=num1+op+num2;
+	answer1.innerHTML=eval(num1+num2);
+	answer2.innerHTML=eval(num1*num2);
+	answer3.innerHTML=eval(num1-num2);
+   	answer4.innerHTML=eval(num1/num2);
+	correct=eval(num1+op+num2);	
+	function New(){
+  		if(document.getElementById("one").checked){
+			if(correct==parseInt(document.getElementById("answer1").innerHTML))
+			{
+				flag=true;
+				
+			}
+			else{ 
+				flag=false;
+			}
+		}
+		else if(document.getElementById("two").checked){
+			if(correct==parseInt(document.getElementById("answer2").innerHTML))
+			{
+				flag=true;
+			}
+			else{ 
+				flag=false;
+				
+			}
+		}
+		else if(document.getElementById("three").checked){
+			if(correct==parseInt(document.getElementById("answer3").innerHTML))
+			{
+				flag=true;
+			}
+			else{ 	
+				flag=false;
+				
+			}
+		}
+		else if(document.getElementById("four").checked){
+			if(correct==document.getElementById("answer4").innerHTML)
+			{
+				flag=true;
+				
+			}
+			else{ 
+				
+				flag=false;
+			}
+		}
+		if(flag){
+			s=parseInt(localStorage.getItem("score"));
+			l=parseInt(localStorage.getItem("level"));
+			s=s+100;
+			l=l+1;
+			localStorage.setItem("score",s);
+			localStorage.setItem("level",l);
+			window.location.href='newgame.html';
+		}
+		else{
+			/*var h=parseInt(localStorage.getItem("highscore"));
+			var t1=localStorage.getItem("top1");
+			var t2=localStorage.getItem("top2");
+			var t3=localStorage.getItem("top3");
+			var t4=localStorage.getItem("top4");
+			var t5=localStorage.getItem("top5");
+			var sc=localStorage.getItem("score");
+
+			alert(t1);
+			if(parseInt(localStorage.getItem("score"))>h)
+				h=parseInt(localStorage.getItem("score"));
+			localStorage.setItem("highscore",h);*/
+			window.location.href='welcome.html';
+			
+			
+		}
+		
+	}
+</script>
+</body>
+</html>

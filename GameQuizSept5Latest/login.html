@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Login </title>
+<style>
+*{
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #000000;
+			font-family: "Arial", sans-serif;
+			padding: 50px;
+		}
+		.container{
+			margin: 20px auto;
+			padding: 10px;
+			width: 300px;
+			height: auto;
+			background-color: #fff;
+			border-radius: 5px;
+		}
+		 h1{
+		 	width: 70%;
+			color: #000;
+			font-size: 32px;
+			margin: 28px auto;
+			margin-bottom: 20px;
+			text-align: center;
+			/*padding-top: 40px;*/
+		}
+		.forms{
+			/*padding: 15px;*/
+			text-align: center;
+		}
+		input{
+			padding: 12px 0;
+			margin-bottom: 10px;
+			border-radius: 3px;
+			border: 2px solid transparent;
+			text-align: center;
+			width: 90%;
+			font-size: 16px;
+		}
+		.forms .field{
+			background-color: #ECF0F1;
+		}
+		.forms .btn{
+			background-color: #000000;
+			color: #fff;
+			line-height: 25px;
+			cursor: pointer;
+		}
+		.forms .btn:hover,
+		.forms .btn:active {
+			background-color: #bfbfbfbf;
+		}
+		.button .loginbtn{
+			background-color: #cccccc;
+			color: #000;
+			line-height: 25px;
+			cursor: pointer;
+		}
+		.button .loginbtn:hover,
+		.button .loginbtn:active {
+			background-color: #bfbfbf;
+		}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Login</h1>
+		<div class="forms">
+		<input type="text" id="loguser" placeholder="username" class="field">
+		<input type="password" id="logpass" placeholder="password" class="field">
+		<input type="submit" value="login" class="btn" onclick=check()>
+		<div class="button">
+		<form action="register.html" onsumbit="return registerredirect()" method="POST">
+		  <input type="submit" value="register?" class="loginbtn">
+		</form>
+		</div>
+		</div>
+	</div>
+	<script>
+		function check(){
+			localStorage.setItem("loguser", document.getElementById("loguser").value);
+			localStorage.setItem("logpass", document.getElementById("logpass").value);
+
+   	 		// registering data
+    			var storedName = localStorage.getItem('reguser');
+   			    var storedPass = localStorage.getItem('regpass');
+			//alert(localStorage.getItem("reguser");
+   	 		// loggin in using data
+    			var userName = document.getElementById("loguser").value;
+    			var userPass = document.getElementById("logpass").value;
+				
+   	 		// checking if stored data from register form is equal to data from login form
+   	 		if(userName == storedName && userPass == storedPass) {
+    	   			alert('You are logged in.');
+				window.location.href="welcome.html";
+   	 		}else {
+   	     			alert('Incorrect password or username.');
+    			}
+		}
+ 		function registerredirect(){
+			window.location.href='register.html';
+			return true;
+		}
+	</script>
+	
+</body>
+</html>

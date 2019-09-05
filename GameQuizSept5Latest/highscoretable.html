@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="table.css" 
+</head>
+<style>
+	*{
+	box-sizing: border-box;
+}
+	body{
+	background-color: #000;
+	font-family: "Arial", sans-serif;
+	padding: 20px;
+}
+	#container{
+ 	margin: 20px auto;
+	padding: 30px;
+	width: 30%;
+	height: auto;
+	background-color: #fff;
+	border-radius: 5px;
+}
+	#headingarea{
+	padding-bottom: 10px;
+	margin: 5px auto;
+}
+#headingarea h1{
+	margin-left: 80px;
+}
+#tablearea{
+	margin-left: 40px;
+	position: relative;
+	
+}
+</style>
+
+<body>
+	<div id="container">
+		<div id="headingarea">
+		<h1> High Scores </h1> 
+		
+		<div id="tablearea">
+			<table class="pure-table pure-table-horizontal">
+  				  <thead>
+        				<tr>
+         				   <th>Rank</th>
+          				   <th>Username</th>
+           				   <th>Score</th>
+       				       </tr> 
+    				</thead>
+    				<tbody>
+      					  <tr>
+								<th>1</th>
+								<td id="name1"></td>
+								<td id="score1"></td>
+       					  </tr>
+        				  <tr>
+								<th>2</th>
+								<td id="name2"></td>
+								<td id="score2"></td>
+        				  </tr>
+      					   <tr>
+								<th>3</th>
+								<td id="name3"></td>
+								<td id="score3"></td>
+       					  </tr>
+					
+      					   <tr>
+								<th>4</th>
+								<td id="name4"></td>
+								<td id="score4"></td>
+       					  </tr>
+      					   <tr>
+								<th>5</th>
+								<td id="name5"></td>
+								<td id="score5"></td>
+       					  </tr>
+   				 </tbody>
+			</table>
+		</div>
+	<script>
+		flag=true;
+		if(localStorage.getItem("firstscore")==null){
+			alert("1st if");
+			localStorage.setItem("firstname",localStorage.getItem("reguser"));
+			localStorage.setItem("firstscore",localStorage.getItem("score"));
+			flag=false;
+		}
+		else{
+			alert("1st else");
+			if(parseInt(localStorage.getItem("score"))>parseInt(localStorage.getItem("firstscore"))){
+				
+				localStorage.setItem("fifthname",localStorage.getItem("fourthname"));
+				localStorage.setItem("fifthscore",localStorage.getItem("fourthscore"));
+				localStorage.setItem("fourthname",localStorage.getItem("thirdname"));
+				localStorage.setItem("fourthscore",localStorage.getItem("thirdscore"));
+				localStorage.setItem("thirdname",localStorage.getItem("secondname"));
+				localStorage.setItem("thirdscore",localStorage.getItem("secondscore"));
+				localStorage.setItem("secondname",localStorage.getItem("firstname"));
+				localStorage.setItem("secondscore",localStorage.getItem("firstscore"));
+				localStorage.setItem("firstname",localStorage.getItem("reguser"));
+				localStorage.setItem("firstscore",localStorage.getItem("score"));
+				flag=false;
+			}
+			
+		}
+		
+		if(localStorage.getItem("secondscore")==null && flag==true){
+			localStorage.setItem("secondname",localStorage.getItem("reguser"));
+			localStorage.setItem("secondscore",localStorage.getItem("score"));
+			alert("2nd if");
+			flag=false;
+		}
+		else if(flag){
+			if(parseInt(localStorage.getItem("score"))>parseInt(localStorage.getItem("secondscore"))){
+				localStorage.setItem("fifthname",localStorage.getItem("fourthname"));
+				localStorage.setItem("fifthscore",localStorage.getItem("fourthscore"));
+				localStorage.setItem("fourthname",localStorage.getItem("thirdname"));
+				localStorage.setItem("fourthscore",localStorage.getItem("thirdscore"));
+				localStorage.setItem("thirdname",localStorage.getItem("secondname"));
+				localStorage.setItem("thirdscore",localStorage.getItem("secondscore"));
+				localStorage.setItem("secondname",localStorage.getItem("reguser"));
+				localStorage.setItem("secondscore",localStorage.getItem("score"));
+				flag=false;
+			}
+		}
+		
+		if(localStorage.getItem("thirdscore")==null){
+			localStorage.setItem("thirdname",localStorage.getItem("reguser"));
+			localStorage.setItem("thirdscore",localStorage.getItem("score"));
+			
+			flag=false;
+		}
+		else if(flag){
+			if(parseInt(localStorage.getItem("score"))>parseInt(localStorage.getItem("thirdscore"))){
+				localStorage.setItem("fifthname",localStorage.getItem("fourthname"));
+				localStorage.setItem("fifthscore",localStorage.getItem("fourthscore"));
+				localStorage.setItem("fourthname",localStorage.getItem("thirdname"));
+				localStorage.setItem("fourthscore",localStorage.getItem("thirdscore"));
+				localStorage.setItem("thirdname",localStorage.getItem("reguser"));
+				localStorage.setItem("thirdscore",localStorage.getItem("score"));
+				flag=false;
+			}
+		}
+		
+		if(localStorage.getItem("fourthscore")==null){
+			localStorage.setItem("fourthname",localStorage.getItem("reguser"));
+			localStorage.setItem("fourthscore",localStorage.getItem("score"));
+			
+			flag=false;
+		}
+		else if(flag){
+			if(parseInt(localStorage.getItem("score"))>parseInt(localStorage.getItem("fourthscore"))){
+				localStorage.setItem("fifthname",localStorage.getItem("fourthname"));
+				localStorage.setItem("fifthscore",localStorage.getItem("fourthscore"));
+				localStorage.setItem("fourthname",localStorage.getItem("reguser"));
+				localStorage.setItem("fourthscore",localStorage.getItem("score"));
+				flag=false;
+			}
+		}
+		
+		if(localStorage.getItem("fifthscore")==null){
+			localStorage.setItem("fifthname",localStorage.getItem("reguser"));
+			localStorage.setItem("fifthscore",localStorage.getItem("score"));
+			
+			flag=false;
+		}
+		else if(flag){
+			if(parseInt(localStorage.getItem("score"))>parseInt(localStorage.getItem("fifthscore"))){
+				localStorage.setItem("fifthname",localStorage.getItem("reguser"));
+				localStorage.setItem("fifthscore",localStorage.getItem("score"));
+				flag=false;
+			}
+		}
+		document.getElementById("name1").innerHTML=localStorage.getItem("firstname");
+		document.getElementById("score1").innerHTML=localStorage.getItem("firstscore");
+		document.getElementById("name1").innerHTML=localStorage.getItem("secondname");
+		document.getElementById("score1").innerHTML=localStorage.getItem("secondscore");
+		document.getElementById("name1").innerHTML=localStorage.getItem("thirdname");
+		document.getElementById("score1").innerHTML=localStorage.getItem("thirdscore");
+		document.getElementById("name1").innerHTML=localStorage.getItem("fourthname");
+		document.getElementById("score1").innerHTML=localStorage.getItem("fourthscore");
+		document.getElementById("name1").innerHTML=localStorage.getItem("fifthname");
+		document.getElementById("score1").innerHTML=localStorage.getItem("fifthscore");
+</script>
+
+</body>
+</html>
