@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Register </title>
+<style>
+*{
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #000000;
+			font-family: "Arial", sans-serif;
+			padding: 50px;
+		}
+		.container{
+			margin: 20px auto;
+			padding: 10px;
+			width: 300px;
+			height: auto;
+			background-color: #fff;
+			border-radius: 5px;
+		
+		}
+		 h1{
+		 	width: 70%;
+			color: #000;
+			font-size: 32px;
+			margin: 28px auto;
+			margin-bottom: 20px;
+			text-align: center;
+			/*padding-top: 40px;*/
+		}
+		h3{
+		 	width: 70%;
+			color: #000;
+			font-size: 16px;
+			margin: 28px auto;
+			text-align: center;
+			/*padding-top: 40px;*/
+		}
+		#warning{
+			text-align: center;
+			width: 70%;
+			color: #000;
+			margin: 20px auto;
+		}
+		
+		form{
+			/*padding: 15px;*/
+			text-align: center;
+		}
+		input,button{
+			padding: 12px 0;
+			margin-bottom: 10px;
+			border-radius: 3px;
+			border: 2px solid transparent;
+			text-align: center;
+			width: 90%;
+			font-size: 16px;
+		}
+		form .field{
+			background-color: #ECF0F1;
+		}
+		form .btn{
+			background-color: #000000;
+			color: #fff;
+			line-height: 25px;
+			cursor: pointer;
+		}
+		form .btn:hover,
+		form .btn:active {
+			background-color: #bfbfbfbf;
+		}
+		form .loginbtn{
+			background-color: #cccccc;
+			color: #000;
+			line-height: 25px;
+			cursor: pointer;
+		}
+		form .loginbtn:hover,
+		form .loginbtn:active {
+			background-color: #bfbfbf;
+		}
+</style>
+</head>
+<body>
+	<div class="container">
+	<h1>Welcome!</h1>
+	<h3> Register to continue!</h3>
+		<form  action="login.html" onsubmit="return redirects()" method="POST">
+		    <input type="text" name="username" id="reguser" placeholder="username" pattern="[A-Za-z]{6,}" title="Username should contain only alphabets more than 6 characters!" class="field" required="required">
+		    <input type="password" name="password" id="regpass" placeholder="password" class="field" pattern="^(?=.{4,8})(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~!@#$%^&*()_+|}{:?><]).*$" required="required">
+                    <input type="password" name="cpassword" id="cpassword" placeholder="confirm password" class="field" required="required">
+		    <input type="submit" value="register" class="btn">
+		    <h5 id="warning"></h5> 	
+		</form>
+		<form action="login.html" onsumbit="return loginredirect()" method="POST">
+		  <input type="submit" value="login?" class="loginbtn">
+		</form>
+	</div>
+<script>
+	function redirects(){
+		localStorage.setItem("reguser", document.getElementById("reguser").value);
+		localStorage.setItem("regpass", document.getElementById("regpass").value);
+		
+		var pass1 = document.getElementById("regpass").value;
+                var pass2 = document.getElementById("cpassword").value;
+
+                if (pass1 != pass2) {	
+                   	document.getElementById("warning").innerHTML = "Please confirm the password!";
+			return false;
+                }
+		else{
+			return true;	
+		}
+}
+	function loginredirect(){
+		window.location.href='login.html';
+		return true;
+}
+</script>
+</body>

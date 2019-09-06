@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="table.css" 
+</head>
+<style>
+	*{
+	box-sizing: border-box;
+}
+	body{
+			background-color: #000000;
+			font-family: "Arial", sans-serif;
+			padding: 50px;
+}
+	#container{
+			margin: 20px auto;
+			padding: 10px;
+			width: 300px;
+			height: auto;
+			background-color: #fff;
+			border-radius: 5px;
+}
+	#headingarea{
+	padding-bottom: 10px;
+	
+}
+#headingarea h1{
+	text-align:center;
+
+}
+#tablearea{
+	padding: 0px 8px;
+			margin-bottom: 10px;
+			border-radius: 3px;
+			border: 2px solid transparent;
+			text-align: center;
+			width: 90%;
+			font-size: 16px;
+	
+}
+#usernamearea h3{
+		text-align: center;
+}
+</style>
+
+	
+<body>
+
+	<div id="container">
+		<div id="usernamearea">
+			<h3 id="username"> </h3> 
+		</div>
+		<script>
+			username.innerHTML=localStorage.getItem('reguser');
+		</script>
+		<div id="headingarea">
+		<h1> High Scores </h1> 
+		</div>
+		<div id="tablearea">
+			<table class="pure-table pure-table-horizontal">
+  				  <thead>
+        				<tr>
+         				   <th>Rank</th>
+          				   <th>Username</th>
+           				   <th>Score</th>
+       				       </tr> 
+    				</thead>
+					
+    				<tbody>
+      					  <tr>
+								<th>1</th>
+								<td id="name1"></td>
+								<td id="score1"></td>
+       					  </tr>
+        				  <tr>
+								<th>2</th>
+								<td id="name2"></td>
+								<td id="score2"></td>
+        				  </tr>
+      					   <tr>
+								<th>3</th>
+								<td id="name3"></td>
+								<td id="score3"></td>
+       					  </tr>
+					
+      					   <tr>
+								<th>4</th>
+								<td id="name4"></td>
+								<td id="score4"></td>
+       					  </tr>
+      					   <tr>
+								<th>5</th>
+								<td id="name5"></td>
+								<td id="score5"></td>
+       					  </tr>
+   				 </tbody>
+		</div>
+	
+	</div>
+			</table>
+			<script>
+		function fill(){
+		name1.innerHTML=localStorage.getItem("firstname");
+		score1.innerHTML=localStorage.getItem("firstscore");
+		name2.innerHTML=localStorage.getItem("secondname");
+		score2.innerHTML=localStorage.getItem("secondscore");
+		name3.innerHTML=localStorage.getItem("thirdname");
+		score3.innerHTML=localStorage.getItem("thirdscore");
+		name4.innerHTML=localStorage.getItem("fourthname");
+		score4.innerHTML=localStorage.getItem("fourthscore");
+		name5.innerHTML=localStorage.getItem("fifthname");
+		score5.innerHTML=localStorage.getItem("fifthscore");
+		}
+		fill();
+	</script>
+		</div>
+
+</body>
+</html>
